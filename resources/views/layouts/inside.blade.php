@@ -56,9 +56,12 @@
         </div>
         <div id="menu" class="col-lg-5 text-right col-md-7">
           <a href="{{ Route('user.show', Request::user()->id) }}">
-            @foreach($notification_user as $key)
-          <img src="{{asset('img/user.png')}}" alt="">  <span class="bold-label">{{$key->role->name}}</span>: {{$key->first_name}}
-            @endforeach
+              @if(!empty($notification_user))
+                  @foreach($notification_user as $key)
+                      <img src="{{asset('img/user.png')}}" alt="">  <span class="bold-label">{{$key->role->name}}</span>
+                      : {{$key->first_name}}
+                  @endforeach
+              @endif
           </a>
               <a href="{{ route('logout') }}" onclick="event.preventDefault(); $('#logout-form').submit().detach()"><span id="head-logout">Выйти</span> </a>
                 <form hidden id="logout-form" action="{{ route('logout') }}" method="POST">
