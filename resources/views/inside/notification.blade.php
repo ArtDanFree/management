@@ -1,5 +1,6 @@
 @can('telegram')
-    @foreach($notification_user as $key => $notification_user)
+    @if(!empty($notification_user))
+        @foreach($notification_user as $key => $notification_user)
         <!-- Modal Add-lead -->
         <div class="modal fade" id="telegram-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
@@ -108,4 +109,5 @@
             </div>
         </div>
     @endforeach
+    @endif
 @endcan

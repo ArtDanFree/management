@@ -47,11 +47,13 @@
                     <br> Некачественных лидов {{ $statistic['bad_quality']}}
                 @endif
             @elsecan('admin')
+                @if(!empty($statistic))
                 <b>{{ $statistic['date'] }}</b>
                 <br>К оплате: {{ $statistic['to_pay'] }} рублей
                 <br>Выдано {{ $statistic['issued'] }} из {{ $statistic['count'] }}, конверсия {{ $statistic['conversion'] }}%
                 <br>На рассмотрении {{ $statistic['on_check'] }}
                 <br> Некачественных лидов {{ $statistic['bad_quality']}}
+                @endif
             @endif
         </div>
         <div id="menu" class="col-lg-5 text-right col-md-7">
